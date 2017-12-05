@@ -26,15 +26,38 @@
 
         <div class = "row" >
             <div class = "col-md-12"></div>
-                <h1>CRUD</h1>
+            <h1>CRUD</h1>
+        </div>
+        <div class = "row" >
+            <div class = "col-md-12"></div>
+            <h2>
+                <a href="{{ route('create_post_path') }}"
+                   class = "btn btn-info">Create</a>
+            </h2>
         </div>
         <div class = "row" >
             <div class = "col-md-12"></div>
 
             @foreach($objetos as $item)
-                <h3>{{ $item->title }}</h3>
+                <h3>
+                    {{ $item->title }}
+                    <small class="pull-right">
+                        <a href="{{ route('edit_post_path', ['id' => $item->id]) }}"
+                           class = "btn btn-info">Edit</a>
+                        <form action="{{ route('delete_post_path', ['post' => $item->id]) }}" method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+
+                            <button type="submit" class='btn btn-danger'>Delete</button>
+                        </form>
+                    </small>
+                </h3>
+
                 <h4>{{ $item->description }}</h4>
             @endforeach
+
+            {{ $objetos->render() }}}
+
         </div>
     </div>
 </body>

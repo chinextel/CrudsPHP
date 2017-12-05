@@ -40,30 +40,33 @@
         </div>
     @endif
 
-    <form action="{{ route('store_post_path') }}" method="POST">
+    <form action="{{ route('update_post_path'), ['post' => $post->id] }}" method="POST">
 
         {{ csrf_field() }}
 
+        {{ method_field('PUT') }}
+
         <div class="from-group">
             <label for="title">Title:</label>
-            <input type="text" name="title" class="form-control" value="{{ old('title') }}">
+            <input type="text" name="title" class="form-control" value="{{ $post->title }}">
         </div>
 
 
         <div class="from-group">
             <label for="description">Description:</label>
-            <textarea rows="5" name="description" class="form-control">{{ old('description') }}</textarea>
+            <textarea rows="5" name="description" class="form-control">{{ $post->description }}</textarea>
         </div>
 
         <div class="from-group">
             <label for="url">Url:</label>
-            <input type="text" name="url" class="form-control" value="{{ old('url') }}">
+            <input type="text" name="url" class="form-control" value="{{ $post->url }}">
         </div>
 
         <div class="from-group">
-            <button type="submit" class="btn btn-primary">Create Post</button>
+            <button type="submit" class="btn btn-primary">Edit Post</button>
         </div>
     </form>
+
 
 </div>
 </body>

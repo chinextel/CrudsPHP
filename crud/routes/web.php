@@ -16,5 +16,15 @@ Route::get('/', function () {
 });
 
 Route::name('post_path')->get('/principal', 'PrincipalController@index');
-Route::name('create_post_oath')->get('/principal/create', 'PrincipalController@create');
-Route::name('create_post_oath')->get('/principal/create', 'PrincipalController@create');
+
+Route::name('store_post_path')->post('/principal', 'PrincipalController@store');
+
+Route::name('create_post_path')->get('/principal/create', 'PrincipalController@create');
+
+Route::name('edit_post_path')->get('/principal/edit/{post}','PrincipalController@edit');
+
+Route::name('update_post_path')->put('/principal/update','PrincipalController@update');
+
+Route::name('delete_post_path')->delete('/principal/delete/{post}','PrincipalController@delete');
+
+
