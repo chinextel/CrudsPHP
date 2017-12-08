@@ -56,7 +56,7 @@
                 <h4>{{ $item->description }}</h4>
             @endforeach
 
-            {{ $objetos->render() }}}
+            {{ $objetos->render() }}
 
         </div>
     </div>
